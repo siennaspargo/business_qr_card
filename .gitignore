@@ -21,3 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# config firebase user shtuff
+
+REACT_APP_API_KEY=AIzaSyAwHjiGp3Y0nQBplR0Vj26V84hZbjN6SDo
+REACT_APP_AUTH_DOMAIN=project3-94bb7.firebaseapp.com
+REACT_APP_DATABASE_URL=https://project3-94bb7.firebaseio.com
+REACT_APP_PROJECT_ID=project3-94bb7
+REACT_APP_STORAGE_BUCKET=project3-94bb7.appspot.com
+REACT_APP_MESSAGING_SENDER_ID=617316848040
