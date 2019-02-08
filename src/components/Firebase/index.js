@@ -3,6 +3,10 @@
 // of your React component tree
 import FirebaseContext from './context';
 
+// making the higher order component for signupform component prop
+import { withFirebase } from './context';
+
+
 // retrieve the Firebase instance if it is needed in the React component
 import Firebase from './firebase';
 
@@ -10,4 +14,4 @@ import Firebase from './firebase';
 
 export default Firebase;
 
-export { FirebaseContext };
+export { FirebaseContext, withFirebase };
