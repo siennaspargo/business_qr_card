@@ -1,12 +1,14 @@
-// is used to provide a Firebase instance once at the top-level
-// of your React component tree
-import FirebaseContext from './context';
+import React from 'react';
 
-// retrieve the Firebase instance if it is needed in the React component
-import Firebase from './firebase';
+// creates two components, provide firebase instance once at top-level of react component tree
 
+const FirebaseContext = React.createContext(null);
 
+// higher order component that may be simplier than using a render prop component
+export const withFirebase = Component => props => (
+  <FirebaseContext.Consumer>
+    {firebase => <Component {...props} firebase={firebase} />}
+  </FirebaseContext.Consumer>
+);
 
-export default Firebase;
-
-export { FirebaseContext };
+export default FirebaseContext;
