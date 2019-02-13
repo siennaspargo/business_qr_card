@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Navigation from "../Navigation";
@@ -14,10 +14,20 @@ import * as ROUTES from "../../constants/routes";
 import { withAuthentication } from '../Session';
 
 
-const App = () => (
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      authUser: null,
+    };
+  }
+
+  render() {
+    return (
       <Router>
         <div>
-        <Navigation />
+        <Navigation authUser= {this.state.authUser}/>
 
           <hr />
 
@@ -30,6 +40,8 @@ const App = () => (
           <Route path={ROUTES.ADMIN} component={AdminPage} />
         </div>
       </Router>
-)
+    );
+  }
+}
 
 export default withAuthentication(App);
