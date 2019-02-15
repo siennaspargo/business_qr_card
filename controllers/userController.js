@@ -19,6 +19,16 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    findConnections: function(req, res){
+        db.User.findOne({_id: req.params.id})
+        .populate("connection")
+        .then(function(connections){
+            res.json(connections)
+        })
+        .catch(function(err){
+            res.json(err)
+        })
+    },
     addConnection: function(req, res){
         db.Connection.create(req.body)
             .then(function(dbConnection){
@@ -30,6 +40,19 @@ module.exports = {
             .catch(function(err){
                 res.json(err)
             })
+    },
+    removeConnection: function(req, res){
+        db.Connection.remove({
+                _id: req.params.id
+            }),
+            function(err, removed){
+                if(err){
+                    console.log(err)
+                } else{
+                    console.log(removed)
+                    res.json(removed)
+                }
+            }
     }    
 }
 

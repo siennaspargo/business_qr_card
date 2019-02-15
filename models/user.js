@@ -23,7 +23,7 @@ const userSchema = new Schema({
         required: true
     },
     email: {
-        tupe: String,
+        type: String,
         required: true
     },
     industry: {
@@ -35,7 +35,7 @@ const userSchema = new Schema({
     },
     connections: [{ 
         type: Schema.Types.ObjectId, 
-        ref: 'Connections'}]
+        ref: 'Connection'}]
 });
 
 const User = mongoose.model("User", userSchema);
