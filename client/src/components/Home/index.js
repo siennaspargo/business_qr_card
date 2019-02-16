@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { withAuthorization } from '../Session';
 import API from '../../utils/API';
+import RecipeReviewCard from "./../AppContent/MyInfo";
+import Expansion from "./../AppContent/Expansion";
 
 class HomePage extends Component{
   constructor(props) {
@@ -43,7 +45,8 @@ class HomePage extends Component{
 
   render(){
     return <div>
-
+    <RecipeReviewCard />
+    <Expansion />
     </div>
   }
 };
