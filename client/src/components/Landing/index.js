@@ -1,11 +1,9 @@
 import React from "react";
 
 const Landing = () => (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a className="navbar-brand" href="/">
-Landing
-      </a>
-    </nav>
-)
+<div>
+  
+</div>
+);
 
 export default Landing;
