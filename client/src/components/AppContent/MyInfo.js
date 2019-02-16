@@ -11,12 +11,12 @@ import Collapse from "@material-ui/core/Collapse";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import red from "@material-ui/core/colors/red";
+// import red from "@material-ui/core/colors/red";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import Button from "@material-ui/core/Button";
+// import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
   card: {
@@ -75,16 +75,17 @@ class RecipeReviewCard extends React.Component {
         />
         <CardContent>
           <Typography component="p">
-            FullName
-            {/* {{this.state.fullName}} */}
-            <br /> FullName
-            {/* {{this.state.fullName}} */}
-            <br /> FullName
-            {/* {{this.state.fullName}} */}
-            <br /> FullName
-            {/* {{this.state.fullName}} */}
+            
+            {this.props.user}
+            <br /> 
+            {this.props.email}
             <br />
-            Phone Number etc
+            {this.props.phoneNumber}
+            <br />
+            {this.props.city}
+            <br />
+            {this.props.state}
+            <br />
           </Typography>
         </CardContent>
         <CardActions className={classes.actions} disableActionSpacing>
