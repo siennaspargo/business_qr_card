@@ -8,7 +8,14 @@ class HomePage extends Component{
     super(props);
 
     this.state = {
+      id: "",
       users: null,
+      email: "",
+      phoneNumber: "",
+      industry: "",
+      city: "",
+      state: "",
+      company: ""
     };
   }
 
@@ -27,7 +34,7 @@ class HomePage extends Component{
     }).then(
       API.getUser({fullName: this.state.users})
       .then(res =>
-        this.setState({ books: , title: "", author: "", synopsis: "" })
+        this.setState({ email: res.data.email, phone: res.data.phoneNumber, industry: res.data.industry, city: res.data.state, company: res.data.company, id: res.data._id })
       )
       .catch(err => console.log(err))
     )
