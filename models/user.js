@@ -4,31 +4,24 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     fullName: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     phoneNumber: {
-        type: Number,
-        required: true
-    },
-    street: {
-        type: String
+        type: Number
     },
     city: {
-        type: String,
-        required: true
+        type: String
     },
     state: {
-        type: String,
-        required: true
+        type: String
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     industry: {
-        type: String,
-        required: true
+        type: String
     },
     company: {
         type: String
