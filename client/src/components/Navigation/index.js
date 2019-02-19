@@ -21,6 +21,7 @@ const Navigation = () => (
 
 const NavigationAuth = () => (
   <ul>
+    <li></li>
     <li>
       <Link to={ROUTES.LANDING}>Landing</Link>
     </li>
