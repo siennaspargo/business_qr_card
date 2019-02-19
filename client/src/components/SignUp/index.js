@@ -42,9 +42,9 @@ class SignUpFormBase extends Component {
 
   // pass all the form data to the Firebase Auth API via auth interface in firebase class
   onSubmit = event => {
-       event.preventDefault();
-    
-     const {
+    event.preventDefault();
+
+    const {
       username,
       email,
       phoneNumber,
@@ -68,29 +68,27 @@ class SignUpFormBase extends Component {
         // console.log({...INITIAL_STATE})
         this.setState({ ...INITIAL_STATE });
         // to redirect the user after successful signup
-        
       })
       .catch(error => {
         this.setState({ error });
       });
-        API.createUser({
-          fullName: username,
-          phoneNumber: phoneNumber,
-          city: city,
-          state: state,
-          email: email,
-          industry: industry,
-          company: company
-        })
-        .then(() =>{
-          this.props.history.push(ROUTES.HOME);
-        })
-        .catch(err => console.log(err));
-
+    API.createUser({
+      fullName: username,
+      phoneNumber: phoneNumber,
+      city: city,
+      state: state,
+      email: email,
+      industry: industry,
+      company: company
+    })
+      .then(() => {
+        this.props.history.push(ROUTES.HOME);
+      })
+      .catch(err => console.log(err));
   };
 
   onChange = event => {
-    console.log({[event.target.name]: event.target.value })
+    console.log({ [event.target.name]: event.target.value });
     this.setState({ [event.target.name]: event.target.value });
   };
 

@@ -7,6 +7,7 @@ import { withFirebase } from '../Firebase';
 import API from '../../utils/API';
 import RecipeReviewCard from "./../AppContent/MyInfo";
 import Expansion from "./../AppContent/Expansion";
+// import Modal from "./../AppContent/Modal"
 
 class HomePage extends Component{
   constructor(props) {
@@ -14,8 +15,8 @@ class HomePage extends Component{
 
     this.state = {
       id: "",
-      users: null,
-      email: '',
+      user: '',
+      email: null,
       phoneNumber: "",
       industry: "",
       city: "",
@@ -26,37 +27,37 @@ class HomePage extends Component{
   
 
   componentDidMount() {
-    this.props.firebase.users().on('value', snapshot => {
+    this.props.firebase.user().on('value', snapshot => {
       this.setState({
-        users: snapshot.val(),
+        email: snapshot.val()
       });
-      
-    })
-    
-    console.log(this.state.users)
-
-    // this.loadProfile(this.state.email)
+      console.log(snapshot.val())
+    });
+  
+    this.loadProfile()
     // this.props.firebase.auth().onAuthStateChanged(function(user) {
-    //   this.setState({ users: user}); // user is undefined if no user signed in
+    //   this.setState({ users: user}); 
+    //    // user is undefined if no user signed in
     //  });
   };
 
   componentWillUnmount() {
-    this.props.firebase.users().off();
+    this.props.firebase.user().off();
   };
 
-  loadProfile(email){
+  loadProfile(){
+    console.log(this.state.email)
       API.getUser({email: this.state.email})
       .then(res => {
         console.log(res.data)
-        this.setState({users: res.data.fullName, phone: res.data.phoneNumber, industry: res.data.industry, city: res.data.state, company: res.data.company, id: res.data._id })
+        this.setState({user: res.data.fullName, phone: res.data.phoneNumber, industry: res.data.industry, city: res.data.state, company: res.data.company, id: res.data._id })
       })
       .catch(err => console.log(err))
   };
 
   render(){
     return <div>
-      {this.state.users}
+      {this.state.user}
       {this.state.email}
       {this.state.phoneNumber}
       {this.state.industry}
@@ -73,6 +74,7 @@ class HomePage extends Component{
     company= {this.state.company}  
     />
     <Expansion />
+    {/* <Modal /> */}
     </div>
   }
 };
