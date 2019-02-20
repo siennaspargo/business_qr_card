@@ -6,8 +6,13 @@ import * as ROUTES from '../../constants/routes';
 
 import { AuthUserContext } from '../Session';
 
+// Material UI
+import AppBar from "../Layouts/Header";
+import Button from "@material-ui/core/Button";
+
 // import all routes defined in constants file
 // give every link component a specific route
+
 
 const Navigation = () => (
   <div>
@@ -20,35 +25,40 @@ const Navigation = () => (
 );
 
 const NavigationAuth = () => (
-  <ul>
-    <li></li>
-    <li>
+  <AppBar>
+
+    <Button>
       <Link to={ROUTES.LANDING}>Landing</Link>
-    </li>
-    <li>
+     </Button>
+
+    <Button>
       <Link to={ROUTES.HOME}>Home</Link>
-    </li>
-    <li>
+      </Button>
+
+      <Button>
       <Link to={ROUTES.ACCOUNT}>Account</Link>
-    </li>
-    <li>
+    </Button>
+    <Button>
       <Link to={ROUTES.ADMIN}>Admin</Link>
-    </li>
-    <li>
+      </Button>
+
       <SignOutButton />
-    </li>
-  </ul>
+
+  </AppBar>
 );
 
 const NavigationNonAuth = () => (
+  <AppBar>
   <ul>
     <li>
+
       <Link to={ROUTES.LANDING}>Landing</Link>
     </li>
     <li>
       <Link to={ROUTES.SIGN_IN}>Sign In</Link>
     </li>
   </ul>
+  </AppBar>
 );
 
 export default Navigation;

@@ -4,10 +4,12 @@ import { compose } from 'recompose';
 
 import { withAuthorization } from '../Session';
 import { withFirebase } from '../Firebase';
-import API from '../../utils/API';
+import API from '../../utils/api';
 import RecipeReviewCard from "./../AppContent/MyInfo";
 import Expansion from "./../AppContent/Expansion";
 // import Modal from "./../AppContent/Modal"
+import AppBar from "../Layouts/Header"
+import Paper from "../Layouts/Footer"
 
 class HomePage extends Component{
   constructor(props) {
@@ -55,14 +57,9 @@ class HomePage extends Component{
       .catch(err => console.log(err))
   };
 
+  //  MEAT MEAT MEAT MEAT MEAT MEAT
   render(){
     return <div>
-      {this.state.user}
-      {this.state.email}
-      {this.state.phoneNumber}
-      {this.state.industry}
-      {this.state.city}
-      {this.state.state}
 
     <RecipeReviewCard 
     users= {this.state.users} 
@@ -75,6 +72,7 @@ class HomePage extends Component{
     />
     <Expansion />
     {/* <Modal /> */}
+    <Paper></Paper>
     </div>
   }
 };

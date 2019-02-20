@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { FirebaseContext } from "../Firebase";
-import API from "../../utils/API";
+import API from "../../utils/api";
 
 // to organize our higher-order components. order doesn't matter bc higher order components don't depend on each other
 import { compose } from "recompose";
