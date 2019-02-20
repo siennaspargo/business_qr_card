@@ -69,22 +69,24 @@ class SignUpFormBase extends Component {
         this.setState({ ...INITIAL_STATE });
         // to redirect the user after successful signup
       })
+      .then(() => {
+        API.createUser({
+          fullName: username,
+          phoneNumber: phoneNumber,
+          city: city,
+          state: state,
+          email: email,
+          industry: industry,
+          company: company
+        })
+          .then(() => {
+            this.props.history.push(ROUTES.HOME);
+          })
+          .catch(err => console.log(err));
+      })
       .catch(error => {
         this.setState({ error });
       });
-    API.createUser({
-      fullName: username,
-      phoneNumber: phoneNumber,
-      city: city,
-      state: state,
-      email: email,
-      industry: industry,
-      company: company
-    })
-      .then(() => {
-        this.props.history.push(ROUTES.HOME);
-      })
-      .catch(err => console.log(err));
   };
 
   onChange = event => {
