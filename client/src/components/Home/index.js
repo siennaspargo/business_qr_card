@@ -8,8 +8,6 @@ import API from '../../utils/api';
 import RecipeReviewCard from "./../AppContent/MyInfo";
 import Expansion from "./../AppContent/Expansion";
 // import Modal from "./../AppContent/Modal"
-import AppBar from "../Layouts/Header"
-import Paper from "../Layouts/Footer"
 
 class HomePage extends Component{
   constructor(props) {
@@ -17,52 +15,46 @@ class HomePage extends Component{
 
     this.state = {
       id: "",
-      user: '',
+      user: "",
       email: null,
       phoneNumber: "",
       industry: "",
       city: "",
       state: "",
-      company: ""
+      company: "",
     };
   }
   
 
   componentDidMount() {
-    this.props.firebase.user().on('value', snapshot => {
-      this.setState({
-        email: snapshot.val()
-      });
-      console.log(snapshot.val())
-    });
-  
-    this.loadProfile()
-    // this.props.firebase.auth().onAuthStateChanged(function(user) {
-    //   this.setState({ users: user}); 
-    //    // user is undefined if no user signed in
-    //  });
+    const currentUser = this.props.firebase.auth.currentUser.email;
+    this.setState({email: currentUser})
+
+    this.loadProfile(currentUser)
+
   };
 
   componentWillUnmount() {
-    this.props.firebase.user().off();
+    // this.props.firebase.users().off();
   };
 
-  loadProfile(){
-    console.log(this.state.email)
-      API.getUser({email: this.state.email})
+  loadProfile(email){
+    console.log(email)
+      API.getUser({email: email})
       .then(res => {
-        console.log(res.data)
-        this.setState({user: res.data.fullName, phone: res.data.phoneNumber, industry: res.data.industry, city: res.data.state, company: res.data.company, id: res.data._id })
+        console.log(res.data[0])
+        const data = res.data[0]
+        this.setState({user: data.fullName, phoneNumber: data.phoneNumber, industry: data.industry, city: data.city, state: data.state, company: data.company, id: data._id })
       })
       .catch(err => console.log(err))
   };
 
-  //  MEAT MEAT MEAT MEAT MEAT MEAT
   render(){
     return <div>
 
+    <p></p>
     <RecipeReviewCard 
-    users= {this.state.users} 
+    user= {this.state.user} 
     email= {this.state.email} 
     phoneNumber= {this.state.phoneNumber} 
     industry= {this.state.industry} 
@@ -72,7 +64,6 @@ class HomePage extends Component{
     />
     <Expansion />
     {/* <Modal /> */}
-    <Paper></Paper>
     </div>
   }
 };
