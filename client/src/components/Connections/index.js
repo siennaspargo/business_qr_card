@@ -7,26 +7,27 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-const styles = theme => ({
+const styles = {
   root: {
     width: "100%"
   },
   heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular
+    // fontSize: theme.typography.pxToRem(15),
+    // fontWeight: theme.typography.fontWeightRegular
   }
-});
+};
 
-function Connections () {
+function Connections (props) {
+    // const { classes } = props;
 
     return (
-    <div className={this.props.root}>
-    {this.props.contacts.map(connection => {
+    <div>
+    {props.contacts.map(connection => {
               return(
               <ExpansionPanel>
 
                   <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                      <Typography className={this.props.heading}></Typography>
+                      <Typography className=""></Typography>
                   </ExpansionPanelSummary>
 
                   <ExpansionPanelDetails>
@@ -49,8 +50,8 @@ function Connections () {
   );
 }
 
-Connections.propTypes = {
-  classes: PropTypes.object.isRequired
-};
+// Connections.propTypes = {
+//   classes: PropTypes.object.isRequired
+// };
 
 export default withStyles(styles)(Connections);
