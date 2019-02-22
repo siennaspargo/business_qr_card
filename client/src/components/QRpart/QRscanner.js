@@ -21,15 +21,15 @@ class QRscanner extends Component {
   handleError(err) {
     console.error(err);
   }
-  showCamera(){
+  showCamera = ()=> {
     this.setState({camera: true})
   }
   
-  hideCamera(){
+  hideCamera = () => {
     this.setState({camera: false})
   }
   renderScan = () => {
-    if (this.state.camera){
+    if (this.state.camera === true){
       return(<QrReader
           delay={this.state.delay}
           onError={this.handleError}
@@ -44,11 +44,11 @@ class QRscanner extends Component {
   render() {
     return (
       <div className="card-body">
-        {this.renderScan}
-        <button onClick={this.hideCamera} className="btn btn-primary">
+        {this.renderScan()}
+        <button onClick={this.showCamera} className="btn btn-primary">
           Open Camera
         </button>
-        <button onClick={this.showCamera} className="btn btn-primary">
+        <button onClick={this.hideCamera} className="btn btn-primary">
           Hide Camera
         </button>
         <p>{this.state.result}</p>
