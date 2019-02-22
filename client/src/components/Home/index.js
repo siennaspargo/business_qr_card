@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { compose } from 'recompose';
 
-
 import { withAuthorization } from '../Session';
 import { withFirebase } from '../Firebase';
 import API from '../../utils/api';
@@ -61,7 +60,6 @@ class HomePage extends Component{
     company= {this.state.company}  
     />
     <Connections contacts = {this.state.connections}/>
-    {/* <Modal /> */}
     </div>
   }
 };
