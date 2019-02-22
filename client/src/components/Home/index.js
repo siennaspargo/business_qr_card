@@ -7,6 +7,7 @@ import { withFirebase } from '../Firebase';
 import API from '../../utils/api';
 import RecipeReviewCard from "./../AppContent/MyInfo";
 import Expansion from "./../AppContent/Expansion";
+import Connections from "./../Connections"
 // import Modal from "./../AppContent/Modal"
 
 class HomePage extends Component{
@@ -22,6 +23,7 @@ class HomePage extends Component{
       city: "",
       state: "",
       company: "",
+      connections: []
     };
   }
   
@@ -39,20 +41,16 @@ class HomePage extends Component{
   };
 
   loadProfile(email){
-    console.log(email)
       API.getUser({email: email})
       .then(res => {
-        console.log(res.data[0])
         const data = res.data[0]
-        this.setState({user: data.fullName, phoneNumber: data.phoneNumber, industry: data.industry, city: data.city, state: data.state, company: data.company, id: data._id })
+        this.setState({user: data.fullName, phoneNumber: data.phoneNumber, industry: data.industry, city: data.city, state: data.state, company: data.company, id: data._id, connections: data.connections })
       })
       .catch(err => console.log(err))
   };
 
   render(){
     return <div>
-
-    <p></p>
     <RecipeReviewCard 
     user= {this.state.user} 
     email= {this.state.email} 
@@ -62,7 +60,7 @@ class HomePage extends Component{
     state= {this.state.state}
     company= {this.state.company}  
     />
-    <Expansion />
+    <Connections contacts = {this.state.connections}/>
     {/* <Modal /> */}
     </div>
   }
