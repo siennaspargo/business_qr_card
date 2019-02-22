@@ -4,10 +4,9 @@ import { compose } from 'recompose';
 import { withAuthorization } from '../Session';
 import { withFirebase } from '../Firebase';
 import API from '../../utils/api';
-import RecipeReviewCard from "./../AppContent/MyInfo";
-import Expansion from "./../AppContent/Expansion";
+import MyInfoCard from "./../AppContent/MyInfo";
 import Connections from "./../Connections"
-// import Modal from "./../AppContent/Modal"
+import Expansion from "./../AppContent/Expansion"
 
 class HomePage extends Component{
   constructor(props) {
@@ -50,7 +49,7 @@ class HomePage extends Component{
 
   render(){
     return <div>
-    <RecipeReviewCard 
+    <MyInfoCard 
     user= {this.state.user} 
     email= {this.state.email} 
     phoneNumber= {this.state.phoneNumber} 
@@ -59,6 +58,7 @@ class HomePage extends Component{
     state= {this.state.state}
     company= {this.state.company}  
     />
+    <Expansion />
     <Connections contacts = {this.state.connections}/>
     </div>
   }
