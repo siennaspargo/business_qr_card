@@ -1,4 +1,4 @@
 import Header from "./Header";
-import Footer from "./Footer";
+import TabsNPageViews from "./TabsNPageViews";
 
-export { Header, Footer };
+export { Header, TabsNPageViews };

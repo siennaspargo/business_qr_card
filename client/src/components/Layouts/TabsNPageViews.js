@@ -9,6 +9,9 @@ import Typography from '@material-ui/core/Typography';
 import { createMuiTheme } from '@material-ui/core/styles';
 import MyInfoCard from '../AppContent/MyInfo';
 import SimpleExpansionPanel from '../AppContent/Expansion';
+import QRscanner from '../QRpart/QRscanner';
+import QRcode from '../QRpart/QRcode';
+
 
 // Not working correctly __ using inline styling instead //
 const theme = createMuiTheme({
@@ -76,14 +79,27 @@ class NavTabs extends React.Component {
               <LinkTab label="QR" href="page3" />
             </Tabs>
           </AppBar>
+
           {/* Page 1 - My Info */}
           {value === 0 && <TabContainer>
-            <MyInfoCard />
+            <MyInfoCard    
+          user= {this.props.user} 
+          email= {this.props.email} 
+          phoneNumber= {this.props.phoneNumber} 
+          industry= {this.props.industry} 
+          city= {this.props.city} 
+          state= {this.props.state}
+          company= {this.props.company}
+          />
           </TabContainer>}
+
           {/* Page 2 - My Connections */}
           {value === 1 && <TabContainer>
-            <SimpleExpansionPanel />
+            <SimpleExpansionPanel     
+              connections = {this.props.connections}  
+            />
           </TabContainer>}
+
           {/* Page 3 - QR */}
           {value === 2 && <TabContainer>
 
@@ -91,10 +107,12 @@ class NavTabs extends React.Component {
             <div align='center'>
             <h1>Generate QR</h1>
             <br/>
-            <img src={ require('../../images/scanmeQR.png') } />
+            <QRcode />
+            {/* <img src={ require('../../images/scanmeQR.png') } /> */}
             <h1>Read QR</h1>
             <br/>
-            <img src={ require('../../images/scanmeQR.png') } />
+            <QRscanner />
+            {/* <img src={ require('../../images/scanmeQR.png') } /> */}
             </div>
 
 

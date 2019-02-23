@@ -4,10 +4,10 @@ import { compose } from 'recompose';
 import { withAuthorization } from '../Session';
 import { withFirebase } from '../Firebase';
 import API from '../../utils/api';
-import MyInfoCard from "./../AppContent/MyInfo";
-import Connections from "./../Connections"
-import Expansion from "./../AppContent/Expansion"
-import Paper from "./../Layouts/Footer"
+// import MyInfoCard from "./../AppContent/MyInfo";
+// import Connections from "./../Connections"
+// import Expansion from "./../AppContent/Expansion"
+import Paper from "./../Layouts/TabsNPageViews"
 
 class HomePage extends Component{
   constructor(props) {
@@ -28,9 +28,7 @@ class HomePage extends Component{
   
 
   componentDidMount() {
-    const currentUser = this.props.firebase.auth.currentUser.email;
-    this.setState({email: currentUser})
-
+    const currentUser = this.props.firebase.auth.currentUser.email
     this.loadProfile(currentUser)
 
   };
@@ -40,29 +38,34 @@ class HomePage extends Component{
   };
 
   loadProfile(email){
+    console.log(email)
       API.getUser({email: email})
       .then(res => {
         const data = res.data[0]
-        this.setState({user: data.fullName, phoneNumber: data.phoneNumber, industry: data.industry, city: data.city, state: data.state, company: data.company, id: data._id, connections: data.connections })
+        console.log(data)
+        this.setState({user: data.fullName, email: data.email, phoneNumber: data.phoneNumber, industry: data.industry, city: data.city, state: data.state, company: data.company, id: data._id, connections: data.connections })
       })
       .catch(err => console.log(err))
   };
 
   render(){
     return <div>
-      <Paper/>
-    {/* <MyInfoCard 
+      <Paper
     user= {this.state.user} 
     email= {this.state.email} 
     phoneNumber= {this.state.phoneNumber} 
     industry= {this.state.industry} 
     city= {this.state.city} 
     state= {this.state.state}
-    company= {this.state.company}  
+    company= {this.state.company}     
+    connections = {this.state.connections}  
+      />
+    {/* <MyInfoCard 
+
     /> */}
     
     {/* <Expansion /> */}
-    <Connections contacts = {this.state.connections}/>
+    {/* <Connections contacts = {this.state.connections}/> */}
     </div>
   }
 };
