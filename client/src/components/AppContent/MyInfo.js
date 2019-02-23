@@ -20,7 +20,8 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const styles = theme => ({
   card: {
-    maxWidth: 400
+    
+    align: 'center'
   },
   media: {
     height: 0,
@@ -58,7 +59,8 @@ class MyInfoCard extends React.Component {
     const { classes } = this.props;
 
     return (
-      <Card className={classes.card}>
+      <Card className={classes.card} variant="fullWidth">
+      
         <CardHeader
           avatar={
             <Avatar aria-label="Name" className={classes.avatar}>
@@ -70,8 +72,8 @@ class MyInfoCard extends React.Component {
               <MoreVertIcon />
             </IconButton>
           }
-          title=""
-          subheader="My Contact Info"
+          title="My Contact Info"
+          subheader="View and Share"
         />
         <CardContent>
           <Typography component="p">
@@ -109,6 +111,7 @@ class MyInfoCard extends React.Component {
         <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
           <CardContent>
             {/* nested modal for QR Code Maybe hits Generate API ? */}
+             <h1 align='center'>Scan QR to grab my info</h1>
             <CardMedia
               className={classes.media}
               image="https://www.researchgate.net/profile/Bob_Frankston/publication/260992182/figure/fig2/AS:635336644390912@1528487468116/An-example-of-a-QR-code.png"

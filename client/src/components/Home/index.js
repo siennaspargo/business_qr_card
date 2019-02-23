@@ -7,6 +7,7 @@ import API from '../../utils/api';
 import MyInfoCard from "./../AppContent/MyInfo";
 import Connections from "./../Connections"
 import Expansion from "./../AppContent/Expansion"
+import Paper from "./../Layouts/Footer"
 
 class HomePage extends Component{
   constructor(props) {
@@ -49,7 +50,8 @@ class HomePage extends Component{
 
   render(){
     return <div>
-    <MyInfoCard 
+      <Paper/>
+    {/* <MyInfoCard 
     user= {this.state.user} 
     email= {this.state.email} 
     phoneNumber= {this.state.phoneNumber} 
@@ -57,8 +59,9 @@ class HomePage extends Component{
     city= {this.state.city} 
     state= {this.state.state}
     company= {this.state.company}  
-    />
-    <Expansion />
+    /> */}
+    
+    {/* <Expansion /> */}
     <Connections contacts = {this.state.connections}/>
     </div>
   }

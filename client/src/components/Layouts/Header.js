@@ -9,8 +9,9 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import grey from "@material-ui/core/colors/grey";
 
+
 export default props => (
-  <AppBar position="static" style={{ background: '#424242' }}>
+  <AppBar position="static" style={{ background: '#5b5b5b' }}>
     <Toolbar>
       <Typography variant="headline" color="inherit">
         Connections
@@ -19,5 +20,3 @@ export default props => (
     </Toolbar>
   </AppBar>
 );
-
-
