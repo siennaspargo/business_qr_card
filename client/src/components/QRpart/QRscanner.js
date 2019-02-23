@@ -21,6 +21,18 @@ class QRscanner extends Component {
   handleError(err) {
     console.error(err);
   }
+
+  addConnection = () => {
+    if(this.state.result === "No result"){
+      return(<div>
+
+      </div>)
+    } else {
+      return(<div>
+        <button onClick={this.database}>Add Connection</button>
+      </div>)
+    }
+  }
   showCamera = ()=> {
     this.setState({camera: true})
   }
@@ -52,6 +64,7 @@ class QRscanner extends Component {
           Hide Camera
         </button>
         <p>{this.state.result}</p>
+        {this.addConnection()}
       </div>
     );
   }

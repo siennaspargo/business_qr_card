@@ -18,6 +18,8 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 // import Button from "@material-ui/core/Button";
 
+import QRcode from '../QRpart/QRcode'
+
 const styles = theme => ({
   card: {
     
@@ -112,11 +114,14 @@ class MyInfoCard extends React.Component {
           <CardContent>
             {/* nested modal for QR Code Maybe hits Generate API ? */}
              <h1 align='center'>Scan QR to grab my info</h1>
-            <CardMedia
+
+            <QRcode />
+
+            {/* <CardMedia
               className={classes.media}
               image="https://www.researchgate.net/profile/Bob_Frankston/publication/260992182/figure/fig2/AS:635336644390912@1528487468116/An-example-of-a-QR-code.png"
               title="QR"
-            />
+            /> */}
           </CardContent>
         </Collapse>
       </Card>
