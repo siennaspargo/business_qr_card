@@ -115,7 +115,7 @@ class MyInfoCard extends React.Component {
             {/* nested modal for QR Code Maybe hits Generate API ? */}
              <h1 align='center'>Scan QR to grab my info</h1>
 
-            <QRcode />
+            <QRcode email= {this.props.email}/>
 
             {/* <CardMedia
               className={classes.media}

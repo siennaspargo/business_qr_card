@@ -107,7 +107,7 @@ class NavTabs extends React.Component {
             <div align='center'>
             <h1>Generate QR</h1>
             <br/>
-            <QRcode />
+            <QRcode email ={this.props.email}/>
             {/* <img src={ require('../../images/scanmeQR.png') } /> */}
             <h1>Read QR</h1>
             <br/>
