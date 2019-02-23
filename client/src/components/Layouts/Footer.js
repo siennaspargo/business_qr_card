@@ -1,11 +1,59 @@
-import React from "react";
-import Paper from "@material-ui/core/Paper";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import NoSsr from '@material-ui/core/NoSsr';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import { createMuiTheme } from '@material-ui/core/styles';
+import MyInfoCard from '../AppContent/MyInfo';
+import SimpleExpansionPanel from '../AppContent/Expansion';
 
-class DisabledTabs extends React.Component {
+// Not working correctly __ using inline styling instead //
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#7b7b7b',
+      main: '#5b5b5b',
+      dark: '#3f3f3f',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#959595',
+      main: '#7b7b7b',
+      dark: '#565656',
+      contrastText: '#000',
+    },
+  },
+});
+
+function TabContainer(props) {
+  return (
+    <Typography component="div" style={{ padding: 10 * 3 }}>
+      {props.children}
+    </Typography>
+  );
+}
+
+TabContainer.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+function LinkTab(props) {
+  return <Tab component="a" onClick={event => event.preventDefault()} {...props} />;
+}
+
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.paper,
+  },
+});
+
+class NavTabs extends React.Component {
   state = {
-    value: 2
+    value: 0,
   };
 
   handleChange = (event, value) => {
@@ -13,22 +61,52 @@ class DisabledTabs extends React.Component {
   };
 
   render() {
+    const { classes } = this.props;
+    const { value } = this.state;
+
     return (
-      <Paper square>
-        <Tabs
-          value={this.state.value}
-          indicatorColor="primary"
-          textColor="primary"
-          onChange={this.handleChange}
-        >
-          <Tab label="Your Info" />
-          <Tab label="Connections" />
-          <Tab label="Generate QR" />
-          <Tab label="QR Scanner" />
-        </Tabs>
-      </Paper>
+      <NoSsr>
+        <div className={classes.root}>
+          <AppBar position="static" style={{ background: '#7b7b7b' }}>
+            <Tabs 
+            indicatorColor="secondary"
+            variant="fullWidth" value={value} onChange={this.handleChange} >
+              <LinkTab label="My Info" href="page1" />
+              <LinkTab label="My Connections" href="page2" />
+              <LinkTab label="QR" href="page3" />
+            </Tabs>
+          </AppBar>
+          {/* Page 1 - My Info */}
+          {value === 0 && <TabContainer>
+            <MyInfoCard />
+          </TabContainer>}
+          {/* Page 2 - My Connections */}
+          {value === 1 && <TabContainer>
+            <SimpleExpansionPanel />
+          </TabContainer>}
+          {/* Page 3 - QR */}
+          {value === 2 && <TabContainer>
+
+            {/* placeholder image */}
+            <div align='center'>
+            <h1>Generate QR</h1>
+            <br/>
+            <img src={ require('../../images/scanmeQR.png') } />
+            <h1>Read QR</h1>
+            <br/>
+            <img src={ require('../../images/scanmeQR.png') } />
+            </div>
+
+
+          </TabContainer>}
+        </div>
+      </NoSsr>
     );
   }
 }
 
-export default DisabledTabs;
+NavTabs.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(NavTabs);
