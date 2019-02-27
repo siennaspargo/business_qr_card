@@ -111,7 +111,7 @@ class NavTabs extends React.Component {
             {/* <img src={ require('../../images/scanmeQR.png') } /> */}
             <h1>Read QR</h1>
             <br/>
-            <QRscanner />
+            <QRscanner id={this.props.id}/>
             {/* <img src={ require('../../images/scanmeQR.png') } /> */}
             </div>
 
