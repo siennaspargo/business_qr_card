@@ -58,7 +58,8 @@ class HomePage extends Component{
     city= {this.state.city} 
     state= {this.state.state}
     company= {this.state.company}     
-    connections = {this.state.connections}  
+    connections = {this.state.connections} 
+    id = {this.state.id} 
       />
     {/* <MyInfoCard 
 
