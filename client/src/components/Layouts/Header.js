@@ -10,7 +10,8 @@ import Button from "@material-ui/core/Button";
 
 
 export default props => (
-  <AppBar position="static" style={{ background: '#5b5b5b' }}>
+  <AppBar position="static" style={{ background: '#424242' }}>
+  {/* 212121 424242*/}
     <Toolbar>
       <Typography variant="headline" color="inherit">
         Connections

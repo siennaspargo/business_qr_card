@@ -22,7 +22,6 @@ import QRcode from '../QRpart/QRcode'
 
 const styles = theme => ({
   card: {
-    
     align: 'center'
   },
   media: {
@@ -51,7 +50,7 @@ const styles = theme => ({
 });
 
 class MyInfoCard extends React.Component {
-  state = { expanded: false };
+  state = { expanded: true };
 
   handleExpandClick = () => {
     this.setState(state => ({ expanded: !state.expanded }));
@@ -61,7 +60,7 @@ class MyInfoCard extends React.Component {
     const { classes } = this.props;
 
     return (
-      <Card className={classes.card} variant="fullWidth">
+      <Card className={classes.card} variant="#">
       
         <CardHeader
           avatar={
@@ -78,17 +77,16 @@ class MyInfoCard extends React.Component {
           subheader="View and Share"
         />
         <CardContent>
-          <Typography component="p">
-            
-            {this.props.user}
+          <Typography component="p" variant="body2" gutterBottom>
+            User: {this.props.user}
             <br /> 
-            {this.props.email}
+            Email: {this.props.email}
             <br />
-            {this.props.phoneNumber}
+            Phone Number: {this.props.phoneNumber}
             <br />
-            {this.props.city}
+            City: {this.props.city}
             <br />
-            {this.props.state}
+            State: {this.props.state}
             <br />
           </Typography>
         </CardContent>
@@ -116,12 +114,6 @@ class MyInfoCard extends React.Component {
              <h1 align='center'>Scan QR to grab my info</h1>
 
             <QRcode email= {this.props.email}/>
-
-            {/* <CardMedia
-              className={classes.media}
-              image="https://www.researchgate.net/profile/Bob_Frankston/publication/260992182/figure/fig2/AS:635336644390912@1528487468116/An-example-of-a-QR-code.png"
-              title="QR"
-            /> */}
           </CardContent>
         </Collapse>
       </Card>

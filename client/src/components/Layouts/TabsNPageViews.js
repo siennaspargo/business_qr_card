@@ -70,7 +70,7 @@ class NavTabs extends React.Component {
     return (
       <NoSsr>
         <div className={classes.root}>
-          <AppBar position="static" style={{ background: '#7b7b7b' }}>
+          <AppBar position="static" style={{ background: '#212121' }}>
             <Tabs 
             indicatorColor="secondary"
             variant="fullWidth" value={value} onChange={this.handleChange} >
@@ -81,7 +81,7 @@ class NavTabs extends React.Component {
           </AppBar>
 
           {/* Page 1 - My Info */}
-          {value === 0 && <TabContainer>
+          {value === 0 && <TabContainer  >
             <MyInfoCard    
           user= {this.props.user} 
           email= {this.props.email} 
