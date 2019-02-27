@@ -52,10 +52,10 @@ const NavigationNonAuth = () => (
   <ul>
     <li>
 
-      <Link to={ROUTES.LANDING}>Landing</Link>
+      <Link style={{ textDecoration: 'none', color: 'yellow' }} to={ROUTES.LANDING}>Landing</Link>
     </li>
     <li>
-      <Link to={ROUTES.SIGN_IN}>Sign In</Link>
+      <Link style={{ textDecoration: 'none', color: 'yellow' }} to={ROUTES.SIGN_IN}>Sign In</Link>
     </li>
   </ul>
   </AppBar>
