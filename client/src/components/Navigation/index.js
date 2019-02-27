@@ -28,22 +28,22 @@ const NavigationAuth = () => (
   <AppBar>
 
     <Button>
-      <Link to={ROUTES.LANDING}>Landing</Link>
+      <Link style={{ textDecoration: 'none', color: 'yellow' }} to={ROUTES.LANDING}>Landing</Link>
      </Button>
 
     <Button>
-      <Link to={ROUTES.HOME}>Home</Link>
+      <Link style={{ textDecoration: 'none', color: 'yellow' }} to={ROUTES.HOME}>Home</Link>
       </Button>
 
       <Button>
-      <Link to={ROUTES.ACCOUNT}>Account</Link>
+      <Link style={{ textDecoration: 'none', color: 'yellow' }} to={ROUTES.ACCOUNT}>Account</Link>
     </Button>
     <Button>
-      <Link to={ROUTES.ADMIN}>Admin</Link>
+      <Link style={{ textDecoration: 'none', color: 'yellow' }} to={ROUTES.ADMIN}>Admin</Link>
       </Button>
-
+<Button>
       <SignOutButton />
-
+</Button>
   </AppBar>
 );
 
