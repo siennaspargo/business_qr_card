@@ -28,8 +28,9 @@ class QRscanner extends Component {
     const newConnection = this.state.result;
     API.addConnection(id, newConnection)
       .then(res => {
-          this.hideCamera()
+          this.setState({result : "No result"})
       })
+      .catch(err => console.log(err))
   }
 
   showButton = () => {
@@ -39,7 +40,7 @@ class QRscanner extends Component {
       </div>)
     } else {
       return(<div>
-        <button onClick={this.addByQR()}>Add Connection</button>
+        <button onClick={this.addByQR}>Add Connection</button>
       </div>)
     }
   }
