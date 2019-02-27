@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import QrReader from "react-qr-reader";
+import API from "../../utils/api"
  
 class QRscanner extends Component {
   constructor(props) {
@@ -21,19 +22,28 @@ class QRscanner extends Component {
   handleError(err) {
     console.error(err);
   }
+  
+  addByQR = () => {
+    const id = this.props.id;
+    const newConnection = this.state.result;
+    API.addConnection(id, newConnection)
+      .then(res => {
+          this.hideCamera()
+      })
+  }
 
-  addConnection = () => {
+  showButton = () => {
     if(this.state.result === "No result"){
       return(<div>
 
       </div>)
     } else {
       return(<div>
-        <button onClick={this.database}>Add Connection</button>
+        <button onClick={this.addByQR()}>Add Connection</button>
       </div>)
     }
   }
-  showCamera = ()=> {
+  showCamera = () => {
     this.setState({camera: true})
   }
   
@@ -64,7 +74,7 @@ class QRscanner extends Component {
           Hide Camera
         </button>
         <p>{this.state.result}</p>
-        {this.addConnection()}
+        {this.showButton()}
       </div>
     );
   }
