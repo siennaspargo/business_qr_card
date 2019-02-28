@@ -6,7 +6,7 @@ import PasswordChangeForm from "../PasswordChange";
 const AccountPage = () => (
   <AuthUserContext.Consumer>
     {authUser => (
-      <div>
+      <div align='center' style={{ textDecoration: 'none', color: '#64ffda' }}>
         <h1>Account: {authUser.email}</h1>
         <PasswordForgetForm />
         <PasswordChangeForm />

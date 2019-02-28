@@ -23,28 +23,6 @@ function SimpleExpansionPanel(props) {
     <div className={classes.root}>
       <ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Rafael Blanco</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            Phone Number:
-            <br />
-            Industry:
-            <br />
-            Company:
-            <br />
-            Street:
-            <br />
-            City:
-            <br />
-            State:
-            <br />
-            Email:
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Typography className={classes.heading}>Sienna Spargo</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
@@ -67,7 +45,51 @@ function SimpleExpansionPanel(props) {
       </ExpansionPanel>
       <ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Kevin Furgeson</Typography>
+          <Typography className={classes.heading}>Rafael Blanco</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            Phone Number:
+            <br />
+            Industry:
+            <br />
+            Company:
+            <br />
+            Street:
+            <br />
+            City:
+            <br />
+            State:
+            <br />
+            Email:
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography className={classes.heading}>Kevin Ferguson</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            Phone Number:
+            <br />
+            Industry:
+            <br />
+            Company:
+            <br />
+            Street:
+            <br />
+            City:
+            <br />
+            State:
+            <br />
+            Email:
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography className={classes.heading}>Josh Glatt</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>

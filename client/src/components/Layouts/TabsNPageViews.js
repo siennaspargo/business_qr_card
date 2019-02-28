@@ -80,7 +80,9 @@ class NavTabs extends React.Component {
             </Tabs>
           </AppBar>
 
+
           {/* Page 1 - My Info */}
+
           {value === 0 && <TabContainer  >
             <MyInfoCard    
           user= {this.props.user} 
@@ -93,28 +95,30 @@ class NavTabs extends React.Component {
           />
           </TabContainer>}
 
+
           {/* Page 2 - My Connections */}
+
           {value === 1 && <TabContainer>
             <SimpleExpansionPanel     
               connections = {this.props.connections}  
             />
           </TabContainer>}
 
+
           {/* Page 3 - QR */}
+
           {value === 2 && <TabContainer>
 
             {/* placeholder image */}
             <div align='center'>
-            <h1>Generate QR</h1>
+            <h1>My Unique QR</h1>
             <br/>
             <QRcode email ={this.props.email}/>
-            {/* <img src={ require('../../images/scanmeQR.png') } /> */}
-            <h1>Read QR</h1>
+
+            <h1>Scan QR</h1>
             <br/>
             <QRscanner id={this.props.id}/>
-            {/* <img src={ require('../../images/scanmeQR.png') } /> */}
             </div>
-
 
           </TabContainer>}
         </div>

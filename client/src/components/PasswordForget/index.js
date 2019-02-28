@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+// Firebase
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
+// Material UI
+import Button from '@material-ui/core/Button';
+
 const PasswordForgetPage = () => (
-  <div>
-    <h1>PasswordForget</h1>
+  <div align='center'>
+    <h1 style={{ textDecoration: 'none', color: '#FFFFFF' }}>Forgot Your Password?</h1>
     <PasswordForgetForm />
   </div>
 );
@@ -48,7 +51,9 @@ class PasswordForgetFormBase extends Component {
     const isInvalid = email === '';
 
     return (
+      <div align='center'>
       <form onSubmit={this.onSubmit}>
+      <h4 style={{ textDecoration: 'none', color: '#bdbdbd' }}>Email</h4>
         <input
           name="email"
           value={this.state.email}
@@ -56,19 +61,22 @@ class PasswordForgetFormBase extends Component {
           type="text"
           placeholder="Email Address"
         />
-        <button disabled={isInvalid} type="submit">
+        <Button style={{ textDecoration: 'none', color: '#64ffda' }} disabled={isInvalid} type="submit">
           Reset My Password
-        </button>
+        </Button>
 
         {error && <p>{error.message}</p>}
       </form>
+      </div>
     );
   }
 }
 
 const PasswordForgetLink = () => (
   <p>
-    <Link to={ROUTES.PASSWORD_FORGET}>Forgot Password?</Link>
+    <Button>
+    <Link style={{ textDecoration: 'none', color: '#64ffda' }} to={ROUTES.PASSWORD_FORGET}>Forgot Password?</Link>
+    </Button>
   </p>
 );
 

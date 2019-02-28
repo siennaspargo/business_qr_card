@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import QrReader from "react-qr-reader";
-import API from "../../utils/api"
+import API from "../../utils/api";
+// Material UI
+import Button from "@material-ui/core/Button";
  
 class QRscanner extends Component {
   constructor(props) {
@@ -40,7 +42,7 @@ class QRscanner extends Component {
       </div>)
     } else {
       return(<div>
-        <button onClick={this.addByQR}>Add Connection</button>
+        <Button onClick={this.addByQR}>Add Connection</Button>
       </div>)
     }
   }
@@ -61,19 +63,19 @@ class QRscanner extends Component {
           showViewFinder={true}
         />)
     } else {
-      return(<div>Click button to open camera</div>)
+      return(<div></div>)
     }
   }
   render() {
     return (
       <div className="card-body">
         {this.renderScan()}
-        <button onClick={this.showCamera} className="btn btn-primary">
+        <Button onClick={this.showCamera} className="btn btn-primary">
           Open Camera
-        </button>
-        <button onClick={this.hideCamera} className="btn btn-primary">
+        </Button>
+        <Button onClick={this.hideCamera} className="btn btn-primary">
           Hide Camera
-        </button>
+        </Button>
         <p>{this.state.result}</p>
         {this.showButton()}
       </div>

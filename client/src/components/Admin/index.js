@@ -37,7 +37,7 @@ class AdminPage extends Component {
     const { users, loading } = this.state;
 
     return (
-      <div>
+      <div align='right' style={{ textDecoration: 'none', color: '#64ffda' }}>
         <h1>Admin</h1>
         {loading && <div>Loading ...</div>}
 <UserList users={users} />
@@ -48,7 +48,7 @@ class AdminPage extends Component {
 const UserList = ({ users }) => (
     <ul>
       {users.map(user => (
-        <li key={user.uid}>
+        <ul key={user.uid}>
           <span>
             <strong>ID:</strong> {user.uid}
           </span>
@@ -58,7 +58,7 @@ const UserList = ({ users }) => (
           <span>
             <strong>Username:</strong> {user.username}
           </span>
-        </li>
+        </ul>
       ))}
     </ul>
   );

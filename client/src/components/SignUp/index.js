@@ -11,9 +11,12 @@ import { compose } from "recompose";
 import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
 
+// Material UI
+import Button from "@material-ui/core/Button";
+
 const SignUpPage = () => (
-  <div>
-    <h1>SignUp</h1>
+  <div align='center'>
+    <h1 style={{ textDecoration: 'none', color: '#bdbdbd' }}>Create New Account</h1>
     <FirebaseContext.Consumer>
       {firebase => <SignUpForm firebase={firebase} />}
     </FirebaseContext.Consumer>
@@ -65,7 +68,6 @@ class SignUpFormBase extends Component {
         });
       })
       .then(() => {
-        // console.log({...INITIAL_STATE})
         this.setState({ ...INITIAL_STATE });
         // to redirect the user after successful signup
       })
@@ -115,85 +117,102 @@ class SignUpFormBase extends Component {
       email === "" ||
       username === "";
 
+
+
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="username"
-          value={username}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Full Name"
-        />
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          name="phoneNumber"
-          value={phoneNumber}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Phone Number"
-        />
-        <input
-          name="industry"
-          value={industry}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Industry"
-        />
-        <input
-          name="city"
-          value={city}
-          onChange={this.onChange}
-          type="text"
-          placeholder="City"
-        />
-        <input
-          name="state"
-          value={state}
-          onChange={this.onChange}
-          type="text"
-          placeholder="State"
-        />
-        <input
-          name="company"
-          value={company}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Company"
-        />
-        <input
-          name="passwordOne"
-          value={passwordOne}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <input
-          name="passwordTwo"
-          value={passwordTwo}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Confirm Password"
-        />
+      <div style={{ textDecoration: 'none', color: '#FFFFFF' }}>
+        <p>Full Name</p>
+        <form onSubmit={this.onSubmit}>
+          <input
+            name="username"
+            value={username}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Full Name"
+          />
+          <p>Email</p>
+          <input
+            name="email"
+            value={email}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Email Address"
+          />
+          <p>Phone Number</p>
+          <input
+            name="phoneNumber"
+            value={phoneNumber}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Phone Number"
+          />
+          <p>Industry</p>
+          <input
+            name="industry"
+            value={industry}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Industry"
+          />
+          <p>City</p>
+          <input
+            name="city"
+            value={city}
+            onChange={this.onChange}
+            type="text"
+            placeholder="City"
+          />
+          <p>State</p>
+          <input
+            name="state"
+            value={state}
+            onChange={this.onChange}
+            type="text"
+            placeholder="State"
+          />
+          <p>Company</p>
+          <input
+            name="company"
+            value={company}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Company"
+          />
+          <p>Password > 6</p>
+          <input
+            name="passwordOne"
+            value={passwordOne}
+            onChange={this.onChange}
+            type="password"
+            placeholder="Password"
+          />
+          <p>Confirm Password</p>
+          <input
+            name="passwordTwo"
+            value={passwordTwo}
+            onChange={this.onChange}
+            type="password"
+            placeholder="Confirm Password"
+          />
+          <br />
+          <Button style={{ textDecoration: 'none', color: '#64ffda' }} disabled={isInvalid} type="submit">
+            Create Account
+        </Button>
 
-        <button disabled={isInvalid} type="submit">
-          Sign Up
-        </button>
-
-        {error && <p>{error.message}</p>}
-      </form>
+          {error && <p>{error.message}</p>}
+        </form>
+      </div>
     );
   }
 }
 
 const SignUpLink = () => (
-  <p>
-    Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+  <p style={{ textDecoration: 'none', color: '#FFFFFF' }}>
+    Don't have an account? 
+    <br/>
+    <Button>
+    <Link style={{ textDecoration: 'none', color: '#64ffda' }} to={ROUTES.SIGN_UP}>Sign Up</Link>
+    </Button>
   </p>
 );
 
