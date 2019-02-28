@@ -1,23 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+// Material UI
 import { withStyles } from "@material-ui/core/styles";
 import classnames from "classnames";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-// import red from "@material-ui/core/colors/red";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-// import Button from "@material-ui/core/Button";
 
+// QR bit
 import QRcode from '../QRpart/QRcode'
 
 const styles = theme => ({
@@ -65,7 +62,7 @@ class MyInfoCard extends React.Component {
         <CardHeader
           avatar={
             <Avatar aria-label="Name" className={classes.avatar}>
-              N
+              SR
             </Avatar>
           }
           action={
@@ -91,12 +88,12 @@ class MyInfoCard extends React.Component {
           </Typography>
         </CardContent>
         <CardActions className={classes.actions} disableActionSpacing>
-          <IconButton aria-label="Add To My Connections">
+          {/* <IconButton aria-label="Add To My Connections">
             <FavoriteIcon />
           </IconButton>
           <IconButton aria-label="Scan QR">
             <ShareIcon />
-          </IconButton>
+          </IconButton> */}
           <IconButton
             className={classnames(classes.expand, {
               [classes.expandOpen]: this.state.expanded
@@ -111,7 +108,7 @@ class MyInfoCard extends React.Component {
         <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
           <CardContent>
             {/* nested modal for QR Code Maybe hits Generate API ? */}
-             <h1 align='center'>Scan QR to grab my info</h1>
+             <h1 align='center'>My Unique QR</h1>
 
             <QRcode email= {this.props.email}/>
           </CardContent>

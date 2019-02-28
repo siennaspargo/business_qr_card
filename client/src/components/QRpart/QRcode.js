@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+// Material UI
+import Button from "@material-ui/core/Button";
 
 class QRcode extends Component {
   state = {
@@ -29,22 +31,22 @@ class QRcode extends Component {
         </div>
       );
     } else {
-      return <h3>Click Button to Generate QRcode</h3>;
+      return ;
     }
   };
 
   render() {
     return (
-      <div>
+      <div align='center'>
         <div className="card text-center">
           <div className="card-header">
-            <h2>QR Code</h2>
+            
           </div>
-          <div className="card-body">{this.renderCode()}</div>
+          <div className="card-body" >{this.renderCode()}</div>
         </div>
-        <button onClick={this.handleGenerator} className="btn btn-primary">
+        <Button onClick={this.handleGenerator} className="btn btn-primary">
         Generate QR code
-        </button>
+        </Button>
       </div>
     );
   }

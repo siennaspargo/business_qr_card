@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
-
+// Firebase Auth
 import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from "../PasswordForget";
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
+// Material UI
+import Button from "@material-ui/core/Button";
+
 const SignInPage = () => (
-  <div>
-    <h1>SignIn</h1>
+  <div align='center'>
+    <h1 style={{ textDecoration: 'none', color: '#FFFFFF' }}>Sign In</h1>
     <SignInForm />
     <PasswordForgetLink />
     <SignUpLink />
@@ -55,7 +58,9 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
 
     return (
+      <div align='center'>
       <form onSubmit={this.onSubmit}>
+      <h4 style={{ textDecoration: 'none', color: '#FFFFFF' }}>Email</h4>
         <input
           name="email"
           value={email}
@@ -63,6 +68,8 @@ class SignInFormBase extends Component {
           type="text"
           placeholder="Email Address"
         />
+        <br/>
+        <h4 style={{ textDecoration: 'none', color: '#FFFFFF' }}>Password</h4>
         <input
           name="password"
           value={password}
@@ -70,12 +77,14 @@ class SignInFormBase extends Component {
           type="password"
           placeholder="Password"
         />
-        <button disabled={isInvalid} type="submit">
+<br/>
+        <Button style={{ textDecoration: 'none', color: '#64ffda' }} disabled={isInvalid} type="submit">
           Sign In
-        </button>
+        </Button>
 
         {error && <p>{error.message}</p>}
       </form>
+      </div>
     );
   }
 }

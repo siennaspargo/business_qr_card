@@ -1,8 +1,6 @@
 import React from 'react';
 
 // Material UI
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 // Firebase
@@ -21,9 +19,9 @@ const styles = theme => ({
 
 
 const SignOutButton = ({ firebase }) => (
-  <button type="button" onClick={firebase.doSignOut}>
+  <Button style={{ textDecoration: 'none', color: '#64ffda' }} type="button" onClick={firebase.doSignOut}>
     Sign Out
-  </button>
+  </Button>
 );
 
 export default withFirebase(SignOutButton);

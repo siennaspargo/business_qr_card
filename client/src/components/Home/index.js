@@ -4,9 +4,6 @@ import { compose } from 'recompose';
 import { withAuthorization } from '../Session';
 import { withFirebase } from '../Firebase';
 import API from '../../utils/api';
-// import MyInfoCard from "./../AppContent/MyInfo";
-// import Connections from "./../Connections"
-// import Expansion from "./../AppContent/Expansion"
 import Paper from "./../Layouts/TabsNPageViews"
 
 class HomePage extends Component{
@@ -61,12 +58,7 @@ class HomePage extends Component{
     connections = {this.state.connections}  
     id = {this.state.id}
       />
-    {/* <MyInfoCard 
 
-    /> */}
-    
-    {/* <Expansion /> */}
-    {/* <Connections contacts = {this.state.connections}/> */}
     </div>
   }
 };
