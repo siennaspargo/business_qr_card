@@ -14,6 +14,8 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
+import ImageAvatars from '../Avatar/index'
+
 // QR bit
 import QRcode from '../QRpart/QRcode'
 
@@ -38,8 +40,11 @@ const styles = theme => ({
   expandOpen: {
     transform: "rotate(180deg)"
   },
-  avatar: {
-    backgroundColor: [900]
+  bigAvatar: {
+    // backgroundColor: [900]
+    margin: 10,
+    width: 60,
+    height: 60,
   },
   typography: {
     margin: theme.spacing.unit * 2
@@ -61,8 +66,8 @@ class MyInfoCard extends React.Component {
       
         <CardHeader
           avatar={
-            <Avatar aria-label="Name" className={classes.avatar}>
-              SR
+            <Avatar aria-label="Name" className={classes.bigAvatar}>
+              <ImageAvatars />
             </Avatar>
           }
           action={
@@ -70,21 +75,20 @@ class MyInfoCard extends React.Component {
               <MoreVertIcon />
             </IconButton>
           }
-          title="My Contact Info"
-          subheader="View and Share"
+          title={this.props.user}
+          subheader=""
         />
         <CardContent>
-          <Typography component="p" variant="body2" gutterBottom>
-            User: {this.props.user}
-            <br /> 
-            Email: {this.props.email}
+          <Typography component="p" variant="inherit" gutterBottom>
+
+            <strong>Email: </strong>{this.props.email}
             <br />
-            Phone Number: {this.props.phoneNumber}
+            <strong>Phone Number: </strong>{this.props.phoneNumber}
             <br />
-            City: {this.props.city}
+            <strong>City: </strong>{this.props.city}
             <br />
-            State: {this.props.state}
-            <br />
+            <strong>State: </strong>{this.props.state}
+
           </Typography>
         </CardContent>
         <CardActions className={classes.actions} disableActionSpacing>

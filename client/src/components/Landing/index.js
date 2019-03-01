@@ -24,22 +24,22 @@ const Landing = () => (
     <br />
     <br />
 
-    <img src={require('../../images/scanmeQR.png')} />
-    <img src={require('../../images/scanmeQR.png')} />
-    <img src={require('../../images/scanmeQR.png')} />
-    <img src={require('../../images/scanmeQR.png')} />
+    <img alt="scanMe" src={require('../../images/scanmeQR.png')} />
+    <img alt="scanMe" src={require('../../images/scanmeQR.png')} />
+    <img alt="scanMe" src={require('../../images/scanmeQR.png')} />
+    <img alt="scanMe" src={require('../../images/scanmeQR.png')} />
 
     <br />
     <br /><br /><br /><br /><br />
 
     <p style={{ textDecoration: 'none', color: '#bdbdbd' }}>
-    Built with React.js using Node.js and Express Web Server,
+      Built with React.js using Node.js and Express Web Server
     <br />
-     backed by MongoDB and Mongoose ORM.
+      Backed by MongoDB and Mongoose ORM
      <br />
-      Has both GET and POST routes for retrieving contact data.
+      Contains both GET and POST routes for retrieving contact data
       <br />
-       Utilizes Material UI, MVC structure, Firebase Authentication and deployed with Heroku.
+      Designed utilizing Material UI, MVC structure, Firebase Authentication and deployed with Heroku.
   </p>
 
 
