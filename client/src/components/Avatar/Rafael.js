@@ -15,14 +15,12 @@ const styles = {
   },
 };
 
-function ImageAvatars(props) {
+function RafaelAvatar(props) {
   const { classes } = props;
   return (
     <Grid container justify="center" alignItems="center">
-      {/* <Avatar alt="Rafael Blanco"
-       src={require("../../images/RafaelAvatar.png")} className={classes.bigAvatar} /> */}
       <Avatar alt="Rafael Blanco"
-        src={require("../../images/mickey.jpg")} className={classes.bigAvatar} />
+        src={require("../../images/RafaelAvatar.png")} className={classes.bigAvatar} />
     </Grid>
   );
 }
@@ -31,8 +29,8 @@ function ImageAvatars(props) {
 
 
 
-ImageAvatars.propTypes = {
+RafaelAvatar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ImageAvatars);
+export default withStyles(styles)(RafaelAvatar);
