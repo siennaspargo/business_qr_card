@@ -32,7 +32,7 @@ module.exports = {
     addConnection: function(req, res){
         db.Connection.create(req.body)
             .then(function(dbConnection){
-                return db.User.findOneAndUpdate({_id: req.params.id},{ $push: { connection: dbConnection}}, {new: true})
+                return db.User.findOneAndUpdate({_id: req.params.id},{ $push: { connections: dbConnection}}, {new: true})
             })
             .then(function(dbUser){
                 res.json(dbUser)
