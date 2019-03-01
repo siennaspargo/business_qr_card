@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
@@ -16,7 +16,9 @@ const styles = {
     // fontWeight: theme.typography.fontWeightRegular
   }
 };
+// class Connections extends Component {
 
+// }
 function Connections (props) {
     // const { classes } = props;
 

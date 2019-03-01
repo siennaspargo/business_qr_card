@@ -2,10 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const connectionSchema = new Schema({
-    requester: { 
-        type: Schema.Types.ObjectId, 
-        ref: 'Users'
-    }
+        new: {
+                type: String
+        }
 });
 
 const Connection = mongoose.model("Connection", connectionSchema);

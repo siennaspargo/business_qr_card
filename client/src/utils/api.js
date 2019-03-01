@@ -14,7 +14,7 @@ export default {
         return axios.get("/api/users/" + id);
     },
     addConnection: function(id, newConnection){
-        return axios.post("/api/users/"+ id, newConnection)
+        return axios.post("/api/users/"+ id, {new: newConnection})
     },
     removeConnection: function(id){
         return axios.delete("/api/users/" + id)

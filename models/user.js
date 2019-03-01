@@ -27,8 +27,9 @@ const userSchema = new Schema({
         type: String
     },
     connections: [{ 
-        type: Schema.Types.ObjectId, 
-        ref: 'Connection'}]
+        type: Schema.Types.ObjectId,
+        ref: 'Connection'
+    }]
 });
 
 const User = mongoose.model("User", userSchema);
