@@ -6,10 +6,10 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import TextFields from "../AppContent/InputForm";
+
 
 import SiennaAvatar from '../Avatar/Sienna';
-import RafaelAvagtar from '../Avatar/Rafael'
+import RafaelAvatar from '../Avatar/Rafael';
 
 const styles = theme => ({
   root: {
@@ -115,8 +115,6 @@ function SimpleExpansionPanel(props) {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-
-      <TextFields />
     </div>
 
     

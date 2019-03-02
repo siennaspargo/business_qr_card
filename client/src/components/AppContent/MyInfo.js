@@ -13,8 +13,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-
-import ImageAvatars from '../Avatar/index'
+import ImageAvatars from '../Avatar/index';
 
 // QR bit
 import QRcode from '../QRpart/QRcode'
@@ -92,12 +91,6 @@ class MyInfoCard extends React.Component {
           </Typography>
         </CardContent>
         <CardActions className={classes.actions} disableActionSpacing>
-          {/* <IconButton aria-label="Add To My Connections">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="Scan QR">
-            <ShareIcon />
-          </IconButton> */}
           <IconButton
             className={classnames(classes.expand, {
               [classes.expandOpen]: this.state.expanded
@@ -111,7 +104,7 @@ class MyInfoCard extends React.Component {
         </CardActions>
         <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            {/* nested modal for QR Code Maybe hits Generate API ? */}
+
              <h1 align='center'>My Unique QR</h1>
 
             <QRcode email= {this.props.email}/>
