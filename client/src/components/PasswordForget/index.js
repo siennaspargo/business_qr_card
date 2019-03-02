@@ -6,6 +6,7 @@ import * as ROUTES from '../../constants/routes';
 
 // Material UI
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 const PasswordForgetPage = () => (
   <div align='center'>
@@ -54,16 +55,16 @@ class PasswordForgetFormBase extends Component {
       <div align='center'>
       <form onSubmit={this.onSubmit}>
       <h4 style={{ textDecoration: 'none', color: '#bdbdbd' }}>Email</h4>
-        <input
+        <TextField
           name="email"
           value={this.state.email}
           onChange={this.onChange}
           type="text"
           placeholder="Email Address"
         />
-        <Button style={{ textDecoration: 'none', color: '#64ffda' }} disabled={isInvalid} type="submit">
+        {/* <Button style={{ textDecoration: 'none', color: '#64ffda' }} disabled={isInvalid} type="submit">
           Reset My Password
-        </Button>
+        </Button> */}
 
         {error && <p>{error.message}</p>}
       </form>

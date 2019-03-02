@@ -4,6 +4,7 @@ import { withFirebase } from '../Firebase';
 
 // Material UI
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 const INITIAL_STATE = {
   passwordOne: '',
@@ -46,14 +47,14 @@ class PasswordChangeForm extends Component {
     return (
       <div align='center'>
       <form onSubmit={this.onSubmit}>
-        <input
+        <TextField
           name="passwordOne"
           value={passwordOne}
           onChange={this.onChange}
           type="password"
           placeholder="New Password"
         />
-        <input
+        <TextField
           name="passwordTwo"
           value={passwordTwo}
           onChange={this.onChange}

@@ -13,6 +13,7 @@ import * as ROUTES from "../../constants/routes";
 
 // Material UI
 import Button from "@material-ui/core/Button";
+import TextField from '@material-ui/core/TextField';
 
 const SignUpPage = () => (
   <div align='center'>
@@ -123,7 +124,7 @@ class SignUpFormBase extends Component {
       <div style={{ textDecoration: 'none', color: '#FFFFFF' }}>
         <p>Full Name</p>
         <form onSubmit={this.onSubmit}>
-          <input
+          <TextField
             name="username"
             value={username}
             onChange={this.onChange}
@@ -131,7 +132,7 @@ class SignUpFormBase extends Component {
             placeholder="Full Name"
           />
           <p>Email</p>
-          <input
+          <TextField
             name="email"
             value={email}
             onChange={this.onChange}
@@ -139,7 +140,7 @@ class SignUpFormBase extends Component {
             placeholder="Email Address"
           />
           <p>Phone Number</p>
-          <input
+          <TextField
             name="phoneNumber"
             value={phoneNumber}
             onChange={this.onChange}
@@ -147,7 +148,7 @@ class SignUpFormBase extends Component {
             placeholder="Phone Number"
           />
           <p>Industry</p>
-          <input
+          <TextField
             name="industry"
             value={industry}
             onChange={this.onChange}
@@ -155,7 +156,7 @@ class SignUpFormBase extends Component {
             placeholder="Industry"
           />
           <p>City</p>
-          <input
+          <TextField
             name="city"
             value={city}
             onChange={this.onChange}
@@ -163,7 +164,7 @@ class SignUpFormBase extends Component {
             placeholder="City"
           />
           <p>State</p>
-          <input
+          <TextField
             name="state"
             value={state}
             onChange={this.onChange}
@@ -171,7 +172,7 @@ class SignUpFormBase extends Component {
             placeholder="State"
           />
           <p>Company</p>
-          <input
+          <TextField
             name="company"
             value={company}
             onChange={this.onChange}
@@ -179,7 +180,7 @@ class SignUpFormBase extends Component {
             placeholder="Company"
           />
           <p>Password > 6</p>
-          <input
+          <TextField
             name="passwordOne"
             value={passwordOne}
             onChange={this.onChange}
@@ -187,7 +188,7 @@ class SignUpFormBase extends Component {
             placeholder="Password"
           />
           <p>Confirm Password</p>
-          <input
+          <TextField
             name="passwordTwo"
             value={passwordTwo}
             onChange={this.onChange}
