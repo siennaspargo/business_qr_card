@@ -11,6 +11,7 @@ import MyInfoCard from '../AppContent/MyInfo';
 import SimpleExpansionPanel from '../AppContent/Expansion';
 import QRscanner from '../QRpart/QRscanner';
 import QRcode from '../QRpart/QRcode';
+import Connections from "../Connections/index";
 
 
 // Not working correctly __ using inline styling instead //
@@ -99,9 +100,10 @@ class NavTabs extends React.Component {
           {/* Page 2 - My Connections */}
 
           {value === 1 && <TabContainer>
-            <SimpleExpansionPanel     
+            {/* <SimpleExpansionPanel     
               connections = {this.props.connections}  
-            />
+            /> */}
+            <Connections connections = {this.props.connections}/>
           </TabContainer>}
 
 

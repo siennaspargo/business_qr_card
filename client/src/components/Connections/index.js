@@ -6,6 +6,7 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import API from "../../utils/api";
 
 const styles = {
   root: {
@@ -16,40 +17,58 @@ const styles = {
     // fontWeight: theme.typography.fontWeightRegular
   }
 };
-// class Connections extends Component {
+class Connections extends Component {
+  constructor(props) {
+    super(props);
+  
+    this.state = {
+    connections: this.props.connections,
+    info: []
+    }
+  }
+  componentDidMount(){
+    
+    this.infoAPI()
+  };
 
-// }
-function Connections (props) {
-    // const { classes } = props;
+  infoAPI = () =>{
+      this.state.connections.map(connection => { 
+        console.log(connection)
+          return API.getUser({email: connection})
+            .then(res =>{
+              console.log(res)
+              this.setState({info: [...this.state.info, res.data[0]]})              
+            })
+            .catch(err => console.log(err))
+      })
+  };
 
+  render() {
     return (
-    <div>
-    {props.contacts.map(connection => {
-              return(
-              <ExpansionPanel>
+      <div>
+        {this.state.info.map(connection => {
+          return (
+            <ExpansionPanel>
+              <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                <Typography className=""> {connection.fullName} </Typography>
+              </ExpansionPanelSummary>
 
-                  <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                      <Typography className=""></Typography>
-                  </ExpansionPanelSummary>
-
-                  <ExpansionPanelDetails>
-                      <Typography>
-                          Phone Number:
-                          Industry:
-                          Company:
-                          Street:
-                          City:
-                          State:
-                          Email:
-                        </Typography>
-                  </ExpansionPanelDetails>
-                  
-             
-      </ExpansionPanel>
-      );
-      })} 
-    </div>
-  );
+              <ExpansionPanelDetails>
+                <Typography>
+                  <p>Phone Number: {connection.phoneNumber}</p>
+                  <p>Industry: {connection.industry}</p>
+                  <p>Company: {connection.company}</p>
+                  <p>City: {connection.city}</p>
+                  <p>State: {connection.state}</p>
+                  <p>Email: </p><a href={`mailto:${connection.email}`}>{connection.email}</a>
+                </Typography>
+              </ExpansionPanelDetails>
+            </ExpansionPanel>
+          );
+        })}
+      </div>
+    );
+  }
 }
 
 // Connections.propTypes = {

@@ -20,8 +20,9 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     findConnections: function(req, res){
-        db.User.findOne({_id: req.params.id})
-        .populate("connection")
+        db.User
+        .findOne({_id: req.params.id})
+        .populate("connections")
         .then(function(connections){
             res.json(connections)
         })
