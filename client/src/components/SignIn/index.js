@@ -9,6 +9,7 @@ import * as ROUTES from '../../constants/routes';
 
 // Material UI
 import Button from "@material-ui/core/Button";
+import TextField from '@material-ui/core/TextField';
 
 const SignInPage = () => (
   <div align='center'>
@@ -61,7 +62,7 @@ class SignInFormBase extends Component {
       <div align='center'>
       <form onSubmit={this.onSubmit}>
       <h4 style={{ textDecoration: 'none', color: '#FFFFFF' }}>Email</h4>
-        <input
+        <TextField
           name="email"
           value={email}
           onChange={this.onChange}
@@ -70,7 +71,7 @@ class SignInFormBase extends Component {
         />
         <br/>
         <h4 style={{ textDecoration: 'none', color: '#FFFFFF' }}>Password</h4>
-        <input
+        <TextField
           name="password"
           value={password}
           onChange={this.onChange}
