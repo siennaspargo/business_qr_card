@@ -35,14 +35,14 @@ class HomePage extends Component{
       .then(res => {
         console.log(res)
         const data = res.data[0]
-        this.setState({user: data.fullName, email: data.email, phoneNumber: data.phoneNumber, industry: data.industry, city: data.city, state: data.state, company: data.company, id: data._id})
+        this.setState({user: data.fullName, email: data.email, phoneNumber: data.phoneNumber, industry: data.industry, city: data.city, state: data.state, company: data.company, id: data._id, connections: data.connections})
       })
       .then(() =>{
         API.getConnections(this.state.id)
           .then(res => {
             res.data.connections.map(connection => {
               return this.setState({
-                connections: [...this.state.connections, connection.new]
+                connections: [...this.state.connections, connection]
               })
             })
           }) 

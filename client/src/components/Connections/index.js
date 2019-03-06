@@ -6,6 +6,7 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import DeleteBtn from "./DeleteBtn"
 import API from "../../utils/api";
 
 const styles = {
@@ -33,8 +34,8 @@ class Connections extends Component {
 
   infoAPI = () =>{
       this.state.connections.map(connection => { 
-        console.log(connection)
-          return API.getUser({email: connection})
+        console.log(connection.new)
+          return API.getUser({email: connection.new})
             .then(res =>{
               console.log(res)
               this.setState({info: [...this.state.info, res.data[0]]})              
