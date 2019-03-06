@@ -6,7 +6,7 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import DeleteBtn from "./DeleteBtn"
+import DeleteBtn from "../DeleteBtn"
 import API from "../../utils/api";
 
 const styles = {
