@@ -3,6 +3,9 @@ import React from "react";
 import { withAuthorization, AuthUserContext } from "../Session";
 import { PasswordForgetForm } from "../PasswordForget";
 import PasswordChangeForm from "../PasswordChange";
+
+
+
 const AccountPage = () => (
   <AuthUserContext.Consumer>
     {authUser => (
@@ -10,6 +13,8 @@ const AccountPage = () => (
         <h1>Account: {authUser.email}</h1>
         <PasswordForgetForm />
         <PasswordChangeForm />
+<br />
+        <input type ="file"/>
       </div>
     )}
   </AuthUserContext.Consumer>
